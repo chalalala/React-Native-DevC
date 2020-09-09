@@ -23,11 +23,11 @@
             if (tries < 10){
                 tries++;
                 if (userGuess > number){
-                    message.innerHTML = `Sorry your guess is too low! You have ${10-tries} left.`;
+                    message.innerHTML = `Sorry your guess is too high! You have ${10-tries} left.`;
                     message.style.backgroundColor = 'red';
                 }
                 else if (userGuess < number){
-                    message.innerHTML = `Sorry your guess is too high! You have ${10-tries} left.`;
+                    message.innerHTML = `Sorry your guess is too low! You have ${10-tries} left.`;
                     message.style.backgroundColor = 'red';
                 }
                 else{
