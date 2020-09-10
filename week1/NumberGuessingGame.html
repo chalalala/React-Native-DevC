@@ -5,23 +5,36 @@
 
     <body>
         <h1>Number Guessing Game</h1>
-        <div id="message"></div>
+		<p>Enter a number from 1 to 100.</p>
+		<p id="message"></p>
         <input type="number" id="number">
-        <button id="guessButton">Guess</button>        
+        <button id="guessButton">Guess</button>
+		<p id="pastguess" style="display:none">Past guesses: </p>
     </body>
 
     <script>
         let message = document.getElementById('message');
-        var tries = 0; // past guesses of user
-        var number = Math.floor(Math.random()*100); // random number
+        var tries = 0; // number of guesses of user
+        var number = Math.floor(Math.random()*100+1); // random number
         console.log(number);
 
         let button = document.getElementById('guessButton');
         button.addEventListener('click', function() {
-            var userGuess = parseInt(document.getElementById('number').value);
+            var userGuess = Number(document.getElementById('number').value);
+			
+            if (tries < 9){
+                // Counting tries
+				tries++;
+				
+				// Display past guess
+				let pastguess = document.getElementById('pastguess'); 
+				pastguess.style.display = 'block';
 
-            if (tries < 10){
-                tries++;
+				let span = document.createElement('span');
+				span.innerHTML = `${userGuess} `;
+				pastguess.appendChild(span);
+				
+				// Check result
                 if (userGuess > number){
                     message.innerHTML = `Sorry your guess is too high! You have ${10-tries} guesses left.`;
                     message.style.backgroundColor = 'red';
@@ -36,6 +49,11 @@
                     message.style.color = 'white';
                 }
             }
+            else{
+                message.innerHTML = 'Sorry. You have no guess left. Reseting page after 3 seconds..'
+				button.disabled = 'true';
+				setTimeout(function(){location.reload()},3000);
+			}
         });
     </script>
 </html>
