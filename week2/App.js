@@ -85,13 +85,16 @@ export default function App() {
         </View>
       </ScrollView>
 
-      <View>
-        <Text>Footer</Text>
+      <View style={styles.footer}>
+        <Feather name="log-out" size={24} color={LIGHT_GRAY_COLOR} />
+        <MaterialIcons name="add-circle-outline" size={27} color={LIGHT_GRAY_COLOR} />
+        <MaterialIcons name="person-outline" size={24} color={LIGHT_GRAY_COLOR} />
       </View>
     </View>
   );
 }
 
+const LIGHT_GRAY_COLOR = 	'rgb(195, 199, 221)';
 const GRAY_COLOR = 'rgb(132, 141, 177)';
 const FOLLOW_COLOR = 'rgb(71,113,246)';
 const SEND_MESSAGE_COLOR = 'rgb(120,213,250)';
@@ -225,5 +228,11 @@ const styles = StyleSheet.create({
     borderRadius:10,
     width: null,
     height: null,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 7,
+    marginHorizontal: 90
   }
 });
