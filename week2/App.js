@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 7,
+    marginVertical: 10,
     marginHorizontal: 90
   }
 });
