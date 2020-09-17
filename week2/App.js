@@ -37,20 +37,16 @@ export default function App() {
       </View>
       
       <View style={styles.statisticsWrapper}>
-        <View style={styles.statistic}>
-          <Text style={styles.count}>{imgData.length}</Text>
-          <Text style={styles.category}>Photos</Text>
-        </View>
-
-        <View style={styles.statistic}>
-          <Text style={styles.count}>12k</Text>
-          <Text style={styles.category}>Followers</Text>
-        </View>
-
-        <View style={styles.statistic}>
-          <Text style={styles.count}>7</Text>
-          <Text style={styles.category}>Following</Text>
-        </View>
+        {
+          data.map(item => {
+            return(
+              <View style={styles.statistic}>
+                <Text style={styles.count}>{item.count}</Text>
+                <Text style={styles.category}>{item.name}</Text>
+              </View>
+            )
+          })
+        }
       </View>
 
       <View style={styles.gallery}>
@@ -108,6 +104,12 @@ const imgData = [
   { id: 11, imgSource: require('./assets/11.jpg') },
   { id: 12, imgSource: require('./assets/12.jpg') },
 ];
+
+const data = [
+  {name:'Photos',count:imgData.length},
+  {name:'Followers',count:'12k'},
+  {name:'Following',count:'7'}
+]
 
 const centerImgData = Math.ceil(imgData.length / 2);
 
