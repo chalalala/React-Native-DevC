@@ -30,7 +30,7 @@ export default function App() {
               <Text style={{color:'white'}} onPress={()=>alert("Followed")}>Follow</Text>
             </View>
             <View style={styles.sendButton}>
-              <MaterialIcons name="send" size={20} color="white" onPress={()=>alert("Sended")}/>
+              <MaterialIcons name="send" size={20} color="white" onPress={()=>alert("Message sended")}/>
             </View>
           </View>
         </View>
