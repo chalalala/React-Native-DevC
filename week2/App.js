@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Constants from "expo-constants";
-import { StyleSheet, ScrollView, View, Image, Text} from 'react-native';
+import { StyleSheet, ScrollView, View, Image, Text, TouchableOpacity} from 'react-native';
 import { Feather, MaterialIcons } from '@expo/vector-icons'; 
 
 export default function App() {
@@ -26,12 +26,12 @@ export default function App() {
           <Text style={styles.job}>Student at University of Science and Technology of Hanoi</Text>
           
           <View style={styles.buttonWrapper}>
-            <View style={styles.followButton}>
-              <Text style={{color:'white'}} onPress={()=>alert("Followed")}>Follow</Text>
-            </View>
-            <View style={styles.sendButton}>
-              <MaterialIcons name="send" size={20} color="white" onPress={()=>alert("Message sended")}/>
-            </View>
+            <TouchableOpacity style={styles.followButton} onPress={()=>alert("Followed")}>
+              <Text style={{color:'white'}}>Follow</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.sendButton} onPress={()=>alert("Message sended")}>
+              <MaterialIcons name="send" size={20} color="white"/>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -84,6 +84,10 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
+
+      <View>
+        <Text>Footer</Text>
+      </View>
     </View>
   );
 }
