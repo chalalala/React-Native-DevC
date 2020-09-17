@@ -6,7 +6,7 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       {/* Header */}
       <View style={styles.top}>
         <Feather name="arrow-left" size={27} color={GRAY_COLOR} style={{margin:20}}/>
@@ -49,40 +49,42 @@ export default function App() {
         }
       </View>
 
-      <View style={styles.gallery}>
-        <View style={{flexDirection: 'column'}}>
-        {
-          imgData.slice(0, centerImgData).map(item => {
-            return(
-              <View style={styles.imageWrapper} key={item.id}>
-                <Image
-                  source={item.imgSource}
-                  style={styles.image}
-                  resizeMode="cover"
-                />
-              </View>
-            )
-          })
-        }
-        </View>
+      <ScrollView>
+        <View style={styles.gallery}>
+          <View style={{flexDirection: 'column'}}>
+          {
+            imgData.slice(0, centerImgData).map(item => {
+              return(
+                <View style={styles.imageWrapper} key={item.id}>
+                  <Image
+                    source={item.imgSource}
+                    style={styles.image}
+                    resizeMode="cover"
+                  />
+                </View>
+              )
+            })
+          }
+          </View>
 
-        <View style={{flexDirection: 'column'}}>
-              {
-                imgData.slice(centerImgData).map(item => {
-                  return(
-                    <View style={styles.imageWrapper} key={item.id}>
-                      <Image
-                        source={item.imgSource}
-                        style={styles.image}
-                        resizeMode="cover"
-                      />
-                    </View>
-                  )
-                })
-              }
+          <View style={{flexDirection: 'column'}}>
+                {
+                  imgData.slice(centerImgData).map(item => {
+                    return(
+                      <View style={styles.imageWrapper} key={item.id}>
+                        <Image
+                          source={item.imgSource}
+                          style={styles.image}
+                          resizeMode="cover"
+                        />
+                      </View>
+                    )
+                  })
+                }
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
