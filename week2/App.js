@@ -55,7 +55,7 @@ export default function App() {
           {
             imgData.slice(0, centerImgData).map(item => {
               return(
-                <View style={styles.imageWrapper} key={item.id}>
+                <View style={{height:Math.random()*200+120, width:160, margin:5}}>
                   <Image
                     source={item.imgSource}
                     style={styles.image}
@@ -71,7 +71,7 @@ export default function App() {
                 {
                   imgData.slice(centerImgData).map(item => {
                     return(
-                      <View style={styles.imageWrapper} key={item.id}>
+                      <View style={{height:Math.random()*200+120, width:160, margin:5}}>
                         <Image
                           source={item.imgSource}
                           style={styles.image}
